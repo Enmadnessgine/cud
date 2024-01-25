@@ -9,8 +9,21 @@ class PlayerCoordinatesConsumer(AsyncWebsocketConsumer):
         pass
 
     async def receive(self, text_data):
-        text_data_json = json.loads(text_data)
-        x = text_data_json['x']
-        y = text_data_json['y']
+        try:
+            coordinates = json.loads(text_data)
 
-        print(f"Received coordinates: x={x}, y={y}")
+            if isinstance(coordinates, dict):
+                x = coordinates.get('x')
+                y = coordinates.get('y')
+
+                if x is not None and y is not None:
+                    print(f"Received coordinates: x={x}, y={y}")
+
+                else:
+                    print("Invalid coordinates format")
+
+            else:
+                print("Received data is not a valid JSON object")
+
+        except json.JSONDecodeError:
+            print("Invalid JSON format")
