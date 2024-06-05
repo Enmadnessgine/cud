@@ -44,5 +44,5 @@ The site is implemented in <strong>Python</strong> using the <strong>Django fram
 
 <h2>Demonstration:</h2>
 
-![error](https://github.com/Enmadnessgine/zzzzzzzzz?raw=true)
+![error](https://github.com/Enmadnessgine/cud/blob/main/map1.jpg?raw=true)
 
